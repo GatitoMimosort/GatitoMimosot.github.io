@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en"> 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+        }
+        
+        /* Estilos para el header */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #333;
+            color: #fff;
+        }
+        
+        /* Estilos para el logo */
+        .logo a img {
+            width: 150px;
+            height: auto;
+        }
+        
+        /* Estilos para el menú de navegación */
+        .nav-menu nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-menu nav ul li a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 18px;
+            padding: 10px 15px;
+            transition: background-color 0.3s ease;
+        }
+        
+        /* Estilos al pasar el mouse sobre los elementos del menú */
+        .nav-menu nav ul li a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+        
+        /* Estilos para la sección Hero */
+        .hero {
+            background-image: url('hero-background.jpg'); /* Puedes cambiar la imagen de fondo */
+            background-size: cover;
+            background-position: center;
+            height: 100vh; /* La sección ocupará el 100% de la altura de la ventana */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+        
+        /* Estilos para el contenido dentro de la sección Hero */
+        .hero-content {
+            max-width: 800px;
+        }
+        
+        /* Estilos para el título dentro de la sección Hero */
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        /* Estilos para el párrafo de descripción */
+        .hero-content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        /* Estilos para la llamada a la acción (CTA) */
+        .btn-cta {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ff6f61; /* Color de fondo del botón */
+            color: white;
+            font-size: 18px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        
+        /* Efecto hover en la CTA */
+        .btn-cta:hover {
+            background-color: #e0554b; /* Color de fondo al pasar el cursor */
+        }
+        
+        /* Estilos para la sección de dos columnas */
+        .two-columns {
+            display: flex;
+            flex-wrap: wrap; /* Permite que se adapten en pantallas más pequeñas */
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 20px;
+            background-color: #f4f4f4; /* Fondo claro */
+        }
+        
+        /* Estilos para las columnas */
+        .two-columns .column {
+            flex: 1;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        /* Estilos para el contenedor de la imagen */
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+        /* Estilos para el título */
+        .two-columns h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        /* Estilos para la descripción */
+        .two-columns p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        /* Estilos para la galería */
+        .gallery {
+            padding: 40px 20px;
+            background-color: #f4f4f4; /* Fondo claro */
+            text-align: center;
+        }
+        
+        /* Estilos para el título de la galería */
+        .gallery h2 {
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        
+        /* Estilos para el contenedor de la galería */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Responsive */
+            gap: 15px; /* Espacio entre las imágenes */
+        }
+        
+        /* Estilos para los elementos de la galería */
+        .gallery-item img {
+            width: 100%; /* Imagen responsiva */
+            height: auto; /* Mantiene la proporción */
+            border-radius: 10px; /* Bordes redondeados */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave */
+            transition: transform 0.3s; /* Transición para el efecto hover */
+        }
+        
+        /* Efecto hover en las imágenes */
+        .gallery-item img:hover {
+            transform: scale(1.05); /* Aumenta el tamaño al pasar el ratón */
+        }
+
+        /* Estilos para el footer */
+        footer {
+            background-color: #333; /* Fondo oscuro */
+            color: white; /* Color del texto */
+            padding: 40px 20px; /* Espaciado interior */
+        }
+        
+        /* Contenedor del footer */
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap; /* Permite que se ajusten en pantallas pequeñas */
+            justify-content: space-between; /* Espacio entre columnas */
+        }
+        
+        /* Estilos para las columnas del footer */
+        .footer-column {
+            flex: 1; /* Cada columna toma igual espacio */
+            min-width: 200px; /* Ancho mínimo de las columnas */
+            margin: 10px; /* Margen entre columnas */
+        }
+        
+        /* Estilos para los encabezados dentro del footer */
+        .footer-column h3 {
+            font-size: 20px; /* Tamaño del texto para los encabezados */
+            margin-bottom: 15px; /* Espacio debajo del encabezado */
+        }
+        
+        /* Estilos para listas en el footer */
+        .footer-column ul {
+            list-style-type: none; /* Eliminar viñetas */
+            padding: 0; /* Eliminar relleno */
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px; /* Espacio entre elementos de la lista */
+        }
+        
+        /* Estilos para enlaces en las listas */
+        .footer-column a {
+            color: white; /* Color de los enlaces */
+            text-decoration: none; /* Sin subrayado */
+            transition: color 0.3s; /* Transición suave al cambiar color */
+        }
+        
+        /* Efecto hover en los enlaces */
+        .footer-column a:hover {
+            color: #ff6f61; /* Color al pasar el ratón */
+        }
+        
+        /* Estilos para los botones de redes sociales */
+        .social-buttons a {
+            display: inline-block; /* Muestra como botones */
+            margin-right: 15px; /* Espacio entre botones */
+            padding: 10px 15px; /* Relleno de los botones */
+            background-color: #555; /* Color de fondo de los botones */
+            border-radius: 5px; /* Bordes redondeados */
+            color: white; /* Color del texto */
+            text-decoration: none; /* Sin subrayado */
+            transition: background-color 0.3s; /* Transición suave al cambiar color */
+        }
+        
+        /* Efecto hover en los botones de redes sociales */
+        .social-buttons a:hover {
+            background-color: #ff6f61; /* Color al pasar el ratón */
+        }
+
+        /* Estilos para pantallas pequeñas */
+        @media (max-width: 768px) {
+            .two-columns {
+                flex-direction: column;
+            }
+        
+            .two-columns .column {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <a href="index.html">
+                <img src="logo.png" alt="Logo de la Empresa">
+            </a>
+        </div>
+    
+        <div class="nav-menu">
+            <nav>
+                <ul>
+                    <li><a href="about.html">Acerca de</a></li>
+                    <li><a href="services.html">Servicios</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Bienvenido a Nuestra Empresa</h1>
+            <p>Somos líderes en ofrecer soluciones innovadoras para tu negocio.</p>
+            <a href="services.html" class="btn-cta">Descubre nuestros servicios</a>
+        </div>
+    </section>
+
+    <section class="two-columns">
+        <div class="column">
+            <h2>Nuestra Misión</h2>
+            <p>Brindar servicios de calidad que superen las expectativas de nuestros clientes, promoviendo un ambiente de innovación y mejora continua.</p>
+        </div>
+        <div class="column image-container">
+            <img src="mission.jpg" alt="Nuestra Misión">
+        </div>
+    </section>
+
+    <section class="gallery">
+        <h2>Nuestra Galería</h2>
+        <div class="gallery-container">
+            <div class="gallery-item">
+                <img src="image1.jpg" alt="Imagen 1">
+            </div>
+            <div class="gallery-item">
+                <img src="image2.jpg" alt="Imagen 2">
+            </div>
+            <div class="gallery-item">
+                <img src="image3.jpg" alt="Imagen 3">
+            </div>
+            <div class="gallery-item">
+                <img src="image4.jpg" alt="Imagen 4">
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Enlaces Rápidos</h3>
+                <ul>
+                    <li><a href="about.html">Acerca de</a></li>
+                    <li><a href="services.html">Servicios</a></li>
+                    <li><a href="contact.html">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Redes Sociales</h3>
+                <div class="social-buttons">
+                    <a href="#">Facebook</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Instagram</a>
+                </div>
+            </div>
+        </div>
+        <p>&copy; 2024 Nuestra Empresa. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
+
+    
